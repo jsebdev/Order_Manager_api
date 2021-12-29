@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Flask Application for api"""
+""" Flask Application for api v1"""
 
 from os import getenv
 from flask import Flask, json, jsonify, request
@@ -234,7 +234,6 @@ def orders():
     Return info about all orders
     """
     orders = storage.all("Order")
-    # print('the orders are', orders)
     return jsonify(orders_info(orders))
 
 
@@ -279,7 +278,7 @@ def order_by_dates(date0, date1):
 
 
 @api.route("/orders/shipping/", strict_slashes=False)
-# @jwt_required()
+@jwt_required()
 def order_by_shipping():
     """
     return all orders with the given key (city, state, country)

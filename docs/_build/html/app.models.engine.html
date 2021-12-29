@@ -1,0 +1,208 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>app.models.engine package &#8212; Order_Manager_api  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="app-models-engine-package">
+<h1>app.models.engine package<a class="headerlink" href="#app-models-engine-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-app.models.engine.storage">
+<span id="app-models-engine-storage-module"></span><h2>app.models.engine.storage module<a class="headerlink" href="#module-app.models.engine.storage" title="Permalink to this headline">¶</a></h2>
+<p>Contains the class Storage</p>
+<dl class="class">
+<dt id="app.models.engine.storage.Storage">
+<em class="property">class </em><code class="descclassname">app.models.engine.storage.</code><code class="descname">Storage</code><a class="headerlink" href="#app.models.engine.storage.Storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Storage Class, this object controls all the comunication
+with the database</p>
+<dl class="classmethod">
+<dt id="app.models.engine.storage.Storage.add_to_dict">
+<em class="property">classmethod </em><code class="descname">add_to_dict</code><span class="sig-paren">(</span><em>objs_dict</em>, <em>objs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.add_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method add to the dictionary dic, all the objects in list objs
+with formated like key. The key’s format is ‘&lt;Class&gt;.&lt;id&gt;’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>cls=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to return all instances from database of a given class or
+all instances from all classes
+kwargs must be None or specific columns and values respectively</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.all_inclusive">
+<code class="descname">all_inclusive</code><span class="sig-paren">(</span><em>cls=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.all_inclusive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to return all instances from database of a given class or
+all instances from all classes
+kwargs must be a dictionary with only one key and an array of values
+as value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.all_logged_users">
+<code class="descname">all_logged_users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.all_logged_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all users with user_name and password different than Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.clear_all">
+<code class="descname">clear_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.clear_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all tables in database</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>call remove() method on the private session attribute</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete from the current database session obj if not None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.delete_users">
+<code class="descname">delete_users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.delete_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all users, hence all data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.dummy_database">
+<code class="descname">dummy_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.dummy_database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.new">
+<code class="descname">new</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the object to the current database session</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.one">
+<code class="descname">one</code><span class="sig-paren">(</span><em>cls=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to return first instance from database of a given class that
+fulfills kwargs filters
+kwargs must be None or specific columns and values respectively</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.order_by_dates">
+<code class="descname">order_by_dates</code><span class="sig-paren">(</span><em>d0</em>, <em>d1</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.order_by_dates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return query of orders between date0 and date1
+the dates format must be %d-%m-%Y</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.reload">
+<code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>reloads data from the database</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.rollback">
+<code class="descname">rollback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.rollback" title="Permalink to this definition">¶</a></dt>
+<dd><p>rollback session</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.engine.storage.Storage.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.engine.storage.Storage.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>commit all changes of the current database session</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.engine">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.models.engine" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Order_Manager_api</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, SebastianCaicedo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/app.models.engine.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>app.models package &#8212; Order_Manager_api  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="app-models-package">
+<h1>app.models package<a class="headerlink" href="#app-models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app.models.engine.html">app.models.engine package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.engine.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.models.engine.html#module-app.models.engine.storage">app.models.engine.storage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.models.engine.html#module-app.models.engine">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-app.models.app_user">
+<span id="app-models-app-user-module"></span><h2>app.models.app_user module<a class="headerlink" href="#module-app.models.app_user" title="Permalink to this headline">¶</a></h2>
+<p>App user class file</p>
+<dl class="class">
+<dt id="app.models.app_user.App_User">
+<em class="property">class </em><code class="descclassname">app.models.app_user.</code><code class="descname">App_User</code><span class="sig-paren">(</span><em>password='1234'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.app_user.App_User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.models.basemodel.BaseModel" title="app.models.basemodel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.models.basemodel.BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.decl_api.Base</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_login.mixins.UserMixin</span></code></p>
+<p>User class</p>
+<dl class="method">
+<dt id="app.models.app_user.App_User.check_password">
+<code class="descname">check_password</code><span class="sig-paren">(</span><em>password</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.app_user.App_User.check_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to check if password is the same as self.password</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.app_user.App_User.email">
+<code class="descname">email</code><a class="headerlink" href="#app.models.app_user.App_User.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.app_user.App_User.id">
+<code class="descname">id</code><a class="headerlink" href="#app.models.app_user.App_User.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.app_user.App_User.name">
+<code class="descname">name</code><a class="headerlink" href="#app.models.app_user.App_User.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.app_user.App_User.password">
+<code class="descname">password</code><a class="headerlink" href="#app.models.app_user.App_User.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.basemodel">
+<span id="app-models-basemodel-module"></span><h2>app.models.basemodel module<a class="headerlink" href="#module-app.models.basemodel" title="Permalink to this headline">¶</a></h2>
+<p>Base class file</p>
+<dl class="class">
+<dt id="app.models.basemodel.BaseModel">
+<em class="property">class </em><code class="descclassname">app.models.basemodel.</code><code class="descname">BaseModel</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.basemodel.BaseModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BaseModel class</p>
+<dl class="method">
+<dt id="app.models.basemodel.BaseModel.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.basemodel.BaseModel.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes object in database</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.basemodel.BaseModel.id">
+<code class="descname">id</code><em class="property"> = Column(None, String(length=60), table=None, primary_key=True, nullable=False)</em><a class="headerlink" href="#app.models.basemodel.BaseModel.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.models.basemodel.BaseModel.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.basemodel.BaseModel.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves object in database</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.basemodel.BaseModel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.models.basemodel.BaseModel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert object to dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.order">
+<span id="app-models-order-module"></span><h2>app.models.order module<a class="headerlink" href="#module-app.models.order" title="Permalink to this headline">¶</a></h2>
+<p>Order class file</p>
+<dl class="class">
+<dt id="app.models.order.Order">
+<em class="property">class </em><code class="descclassname">app.models.order.</code><code class="descname">Order</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.order.Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.models.basemodel.BaseModel" title="app.models.basemodel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.models.basemodel.BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.decl_api.Base</span></code></p>
+<p>Order class</p>
+<dl class="attribute">
+<dt id="app.models.order.Order.date">
+<code class="descname">date</code><a class="headerlink" href="#app.models.order.Order.date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.id">
+<code class="descname">id</code><a class="headerlink" href="#app.models.order.Order.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.payments">
+<code class="descname">payments</code><a class="headerlink" href="#app.models.order.Order.payments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.shipping">
+<code class="descname">shipping</code><a class="headerlink" href="#app.models.order.Order.shipping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.subtotal">
+<code class="descname">subtotal</code><a class="headerlink" href="#app.models.order.Order.subtotal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.taxes">
+<code class="descname">taxes</code><a class="headerlink" href="#app.models.order.Order.taxes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.user">
+<code class="descname">user</code><a class="headerlink" href="#app.models.order.Order.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.order.Order.user_id">
+<code class="descname">user_id</code><a class="headerlink" href="#app.models.order.Order.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.payment">
+<span id="app-models-payment-module"></span><h2>app.models.payment module<a class="headerlink" href="#module-app.models.payment" title="Permalink to this headline">¶</a></h2>
+<p>Payment class file</p>
+<dl class="class">
+<dt id="app.models.payment.Payment">
+<em class="property">class </em><code class="descclassname">app.models.payment.</code><code class="descname">Payment</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.payment.Payment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.models.basemodel.BaseModel" title="app.models.basemodel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.models.basemodel.BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.decl_api.Base</span></code></p>
+<p>Payment class</p>
+<dl class="attribute">
+<dt id="app.models.payment.Payment.date">
+<code class="descname">date</code><a class="headerlink" href="#app.models.payment.Payment.date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.payment.Payment.id">
+<code class="descname">id</code><a class="headerlink" href="#app.models.payment.Payment.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.payment.Payment.order">
+<code class="descname">order</code><a class="headerlink" href="#app.models.payment.Payment.order" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.payment.Payment.order_id">
+<code class="descname">order_id</code><a class="headerlink" href="#app.models.payment.Payment.order_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.payment.Payment.total">
+<code class="descname">total</code><a class="headerlink" href="#app.models.payment.Payment.total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.shipping">
+<span id="app-models-shipping-module"></span><h2>app.models.shipping module<a class="headerlink" href="#module-app.models.shipping" title="Permalink to this headline">¶</a></h2>
+<p>Shipping class file</p>
+<dl class="class">
+<dt id="app.models.shipping.Shipping">
+<em class="property">class </em><code class="descclassname">app.models.shipping.</code><code class="descname">Shipping</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.shipping.Shipping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.models.basemodel.BaseModel" title="app.models.basemodel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.models.basemodel.BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.decl_api.Base</span></code></p>
+<p>Shipping class</p>
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.address">
+<code class="descname">address</code><a class="headerlink" href="#app.models.shipping.Shipping.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.city">
+<code class="descname">city</code><a class="headerlink" href="#app.models.shipping.Shipping.city" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.cost">
+<code class="descname">cost</code><a class="headerlink" href="#app.models.shipping.Shipping.cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.country">
+<code class="descname">country</code><a class="headerlink" href="#app.models.shipping.Shipping.country" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.delivered">
+<code class="descname">delivered</code><a class="headerlink" href="#app.models.shipping.Shipping.delivered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.id">
+<code class="descname">id</code><a class="headerlink" href="#app.models.shipping.Shipping.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.order">
+<code class="descname">order</code><a class="headerlink" href="#app.models.shipping.Shipping.order" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.order_id">
+<code class="descname">order_id</code><a class="headerlink" href="#app.models.shipping.Shipping.order_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.shipping.Shipping.state">
+<code class="descname">state</code><a class="headerlink" href="#app.models.shipping.Shipping.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models.user">
+<span id="app-models-user-module"></span><h2>app.models.user module<a class="headerlink" href="#module-app.models.user" title="Permalink to this headline">¶</a></h2>
+<p>User class file</p>
+<dl class="class">
+<dt id="app.models.user.User">
+<em class="property">class </em><code class="descclassname">app.models.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.models.basemodel.BaseModel" title="app.models.basemodel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.models.basemodel.BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.decl_api.Base</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_login.mixins.UserMixin</span></code></p>
+<p>User class</p>
+<dl class="attribute">
+<dt id="app.models.user.User.company">
+<code class="descname">company</code><a class="headerlink" href="#app.models.user.User.company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.email">
+<code class="descname">email</code><a class="headerlink" href="#app.models.user.User.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.gov_id">
+<code class="descname">gov_id</code><a class="headerlink" href="#app.models.user.User.gov_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.id">
+<code class="descname">id</code><a class="headerlink" href="#app.models.user.User.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.last_name">
+<code class="descname">last_name</code><a class="headerlink" href="#app.models.user.User.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.name">
+<code class="descname">name</code><a class="headerlink" href="#app.models.user.User.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.user.User.orders">
+<code class="descname">orders</code><a class="headerlink" href="#app.models.user.User.orders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.models" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Order_Manager_api</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, SebastianCaicedo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/app.models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
