@@ -125,6 +125,9 @@ def edit_shipping():
 @api.route("/delete/<string:id>", methods=["DELETE"])
 @jwt_required()
 def delete_item(id):
+    """
+    Delete Item with id id
+    """
     item = storage.one(id=id)
     if item:
         item.delete()
@@ -228,7 +231,7 @@ def user_by_id(user_id):
 
 
 @api.route("/orders", methods=["GET"])
-# @jwt_required()
+@jwt_required()
 def orders():
     """
     Return info about all orders
