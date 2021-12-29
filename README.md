@@ -4,9 +4,12 @@ This is the back end side of the an app that handles the process of handling ord
 
 It uses JWT with flask to make the user authentication.
 
-## Table of Contents
+Table of Contents
+=================
 
-[TOC]
+* [Order Manager api](#order-manager-api)
+   * [Principal Features:](#principal-features)
+   * [How to run](#how-to-run)
 
 ## Principal Features:
 
