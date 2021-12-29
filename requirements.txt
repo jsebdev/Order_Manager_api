@@ -1,6 +1,5 @@
 alabaster==0.7.8
 appdirs==1.4.4
-apt-xapian-index==0.49
 argcomplete==1.12.3
 attrs==21.2.0
 autopep8==1.6.0
