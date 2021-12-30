@@ -206,7 +206,7 @@ def create_shipping():
 @api.route("/users/all", methods=["GET"])
 # Here the endpoints has / at the end but the strict_slashes is set to False because YOLO
 @api.route("/users/", methods=["GET"], strict_slashes=False)
-@jwt_required()
+# @jwt_required()
 def all_users():
     """
     Return info about all users
