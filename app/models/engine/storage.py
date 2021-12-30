@@ -39,6 +39,7 @@ class Storage:
         if not app_settings_s:
             app_settings_s = 'config.dev'
         app_settings = importlib.import_module(app_settings_s)
+        # print('y la database uri is', app_settings.DATABASE_URI)
         self.__engine = create_engine(app_settings.DATABASE_URI,
                                       pool_pre_ping=True)
         if app_settings_s == 'config.test':
