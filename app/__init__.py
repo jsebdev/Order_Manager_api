@@ -7,7 +7,7 @@ from flask_cors import CORS
 # import logging
 
 
-def create_app(settings_module='config.dev'):
+def create_app(settings_module='config.prod'):
     app = Flask(__name__)
 
     # CORS(app)
