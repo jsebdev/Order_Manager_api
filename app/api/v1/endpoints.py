@@ -217,7 +217,7 @@ def all_users():
 
 
 @api.route("/users/<string:user_id>", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def user_by_id(user_id):
     """
     Return info of user with <user_id>
@@ -231,7 +231,7 @@ def user_by_id(user_id):
 
 
 @api.route("/orders", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def orders():
     """
     Return info about all orders
@@ -241,7 +241,7 @@ def orders():
 
 
 @api.route("/orders/<string:order_id>", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def order_by_id(order_id):
     """
     Return info about order with <order_id>
@@ -255,7 +255,7 @@ def order_by_id(order_id):
 
 
 @api.route("/orders/[<string:order_ids>]", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def orders_by_ids(order_ids):
     """
     return info about orders with id in <order_ids>
@@ -268,7 +268,7 @@ def orders_by_ids(order_ids):
 
 
 @api.route("/orders/<string:date0> - <string:date1>", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def order_by_dates(date0, date1):
     """
     Return info of orders between date0 and date1
@@ -280,8 +280,8 @@ def order_by_dates(date0, date1):
     return (jsonify([]), 404)
 
 
-@api.route("/orders/shipping/", strict_slashes=False)
-@jwt_required()
+@api.route("/orders/shipping/", strict_slashes=False, methods=["GET"])
+# @jwt_required()
 def order_by_shipping():
     """
     return all orders with the given key (city, state, country)
@@ -302,8 +302,8 @@ def order_by_shipping():
     return jsonify(orders_info(orders))
 
 
-@api.route("/orders/user/<string:user_id>")
-@jwt_required()
+@api.route("/orders/user/<string:user_id>", methods=["GET"])
+# @jwt_required()
 def order_by_user(user_id):
     """
     Return info for orders of user with user_id
