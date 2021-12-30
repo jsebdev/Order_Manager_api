@@ -22,6 +22,10 @@ def create_app(settings_module='config.dev'):
     from app.api.v1 import api
     app.register_blueprint(api)
 
+    @app.route('/')
+    def welcome():
+        return "Welcome to the Order Manager API"
+
     # Set strict slashes to false
     app.url_map.strict_slashes = False
 
