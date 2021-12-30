@@ -35,6 +35,9 @@ class Storage:
         test = getenv('TEST')
 
         app_settings_s = getenv('APP_SETTINGS')
+        # print('la app_settings_s is', app_settings_s)
+        if not app_settings_s:
+            app_settings_s = 'config.dev'
         app_settings = importlib.import_module(app_settings_s)
         self.__engine = create_engine(app_settings.DATABASE_URI,
                                       pool_pre_ping=True)
