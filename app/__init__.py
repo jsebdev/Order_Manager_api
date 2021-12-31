@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask.json import jsonify
 # from flask_jwt_extended import get_jwt_identity
 # from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
@@ -40,11 +41,12 @@ def register_error_handlers(app):
 
     @app.errorhandler(500)
     def base_error_handler(e):
-        return render_template('500.html'), 500
+        # print(e)
+        return jsonify({"msg": "something went wrong, error 500!"}), 500
 
     @app.errorhandler(404)
     def error_404_handler(e):
-        return render_template('404.html'), 404
+        return jsonify({"msg": "looks like what your are looking for does not exist"}), 404
 
 
 # def configure_logging(app):

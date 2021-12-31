@@ -1,5 +1,5 @@
 from .default import *
-DATABASE_URI = 'mysql+mysqldb://orders_dev:orders_dev_pwd@localhost/orders'
+DATABASE_URI = DATABASE_URI_JAWSDB
 APP_ENV = APP_ENV_DEV
 
 DEBUG = True

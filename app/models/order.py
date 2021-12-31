@@ -22,7 +22,7 @@ class Order(BaseModel, Base):
     user = relationship("User", back_populates="orders")
     shipping = relationship("Shipping", back_populates="order", uselist=False,
                             cascade="all, delete, delete-orphan")
-    payments = relationship("Payment", order_by=Payment.id,
+    payments = relationship("Payment", order_by=Payment.date,
                             back_populates="order", cascade="all, delete, delete-orphan")
 
     def __init__(self, **kwargs):

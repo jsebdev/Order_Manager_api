@@ -20,5 +20,5 @@ class User(BaseModel, Base):
     email = Column(String(100), nullable=True)
     company = Column(String(50), nullable=True)
 
-    orders = relationship("Order", order_by=Order.id, back_populates="user",
+    orders = relationship("Order", order_by=Order.date, back_populates="user",
                           cascade="all, delete, delete-orphan")
