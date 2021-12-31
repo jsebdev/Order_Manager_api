@@ -195,6 +195,10 @@ the_class.{}.in_(array)).order_by(the_class.id).all()'.format(key))
         """rollback session"""
         self.__session.rollback()
 
+    def close(self):
+        """close/reset the session"""
+        self.__session.close()
+
     def dummy_database(self):
         users_ids = ['a', 'b', 'c', 'd']
         users_names = ['pepe', 'Juan', 'Stefa', 'Manita']

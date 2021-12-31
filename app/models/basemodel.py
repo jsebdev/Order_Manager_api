@@ -59,3 +59,9 @@ class BaseModel:
         """
         models.storage.delete(self)
         models.storage.save()
+
+    def close_session(self):
+        """
+        Stops the storage session
+        """
+        models.storage.close()

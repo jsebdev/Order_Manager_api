@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 """ Flask Application for api v1"""
 
-from os import getenv
-from flask import Flask, json, jsonify, request
+from flask import jsonify, request, current_app
 from app.models import storage
 from werkzeug.exceptions import NotFound
 from flask_jwt_extended import create_access_token, jwt_required
 
 from app.api.v1 import api
-from app.models import shipping
 from app.models.app_user import App_User
 from flask_cors import cross_origin
 
@@ -29,7 +27,10 @@ def get_token():
     if user is None or not user.check_password(password):
         return jsonify({"msg": "Bad username or password"}), 401
     access_token = create_access_token(identity=email)
-    return jsonify({"access_token": access_token, "user": {"name": user.name, "email": user.email}}), 200
+    res = jsonify({"access_token": access_token, "user": {
+                  "name": user.name, "email": user.email}}), 200
+    storage.close()
+    return res
 
 
 @api.route("/signup", methods=["POST"])
@@ -45,8 +46,11 @@ def create_user_app():
         return jsonify({"msg": "There is already a user with that email"}), 405
     user = App_User(password=password, name=name, email=email)
     access_token = create_access_token(identity=email)
+    res = jsonify({"access_token": access_token, "user": {
+                  "name": user.name, "email": user.email}}), 200
     user.save()
-    return jsonify({"access_token": access_token, "user": {"name": user.name, "email": user.email}}), 200
+    storage.close()
+    return res
 
 
 @api.route("/updateclient", methods=["PUT"])
@@ -69,8 +73,11 @@ def edit_client():
     user.gov_id = gov_id if gov_id is not None else user.gov_id
     user.email = email if email is not None else user.email
     user.company = company if company is not None else user.company
+    user_info = user.to_dict()
     user.save()
-    return jsonify({"msg": "client updated", "client": user.to_dict()}), 200
+    res = jsonify({"msg": "client updated", "client": user_info}), 200
+    storage.close()
+    return res
 
 
 @api.route("/updateorder", methods=["PUT"])
@@ -91,8 +98,11 @@ def edit_order():
         return jsonify({"msg": "there is no order with id "+order_id}), 404
     order.subtotal = subtotal if subtotal is not None else order.subtotal
     order.taxes = taxes if taxes is not None else order.taxes
+    order_info = order.to_dict()
     order.save()
-    return jsonify({"msg": "order updated", "order": order.to_dict()}), 200
+    res = jsonify({"msg": "order updated", "order": order_info}), 200
+    storage.close()
+    return res
 
 
 @api.route("/updateshipping", methods=["PUT"])
@@ -119,7 +129,10 @@ def edit_shipping():
     shipping.cost = cost if cost is not None else shipping.cost
     shipping.delivered = delivered if delivered is not None else shipping.delivered
     shipping.save()
-    return jsonify({"msg": "shipping updated", "shipping": shipping.to_dict()}), 200
+    res = jsonify({"msg": "shipping updated",
+                  "shipping": shipping.to_dict()}), 200
+    storage.close()
+    return res
 
 
 @api.route("/delete/<string:id>", methods=["DELETE"])
@@ -129,10 +142,12 @@ def delete_item(id):
     Delete Item with id id
     """
     item = storage.one(id=id)
-    if item:
-        item.delete()
-        return ({"msg": "deleted"})
-    return ({"msg": "Could not find item with id: "+id})
+    if not item:
+        return ({"msg": "Could not find item with id: "+id})
+
+    item.delete()
+    storage.close()
+    return ({"msg": "deleted"})
 
 
 @api.route("/createclient", methods=["POST"])
@@ -147,9 +162,10 @@ def create_user():
 
     newUser = User(name=name,
                    last_name=last_name, gov_id=gov_id, email=email, company=company)
+    res = jsonify({"msg": "user created", "client": newUser.to_dict()}), 200
     newUser.save()
-    print(newUser)
-    return jsonify({"msg": "user created", "client": newUser.to_dict()}), 200
+    storage.close()
+    return res
 
 
 @api.route("/createorder", methods=["POST"])
@@ -164,10 +180,13 @@ def create_order():
                      taxes=taxes)
     order_dict = newOrder.to_dict()
 
-    if (client_id):
-        newOrder.save()
-        return jsonify({"msg": "order created", "order": order_dict}), 200
-    return jsonify({"msg": "client id missing"}), 400
+    if (not client_id):
+        return jsonify({"msg": "client id missing"}), 400
+
+    res = jsonify({"msg": "order created", "order": order_dict}), 200
+    newOrder.save()
+    storage.close()
+    return res
 
 
 @api.route("/createpayment", methods=["POST"])
@@ -179,8 +198,10 @@ def create_payment():
     order_id = request.json.get("order_id", False)
 
     new_payment = Payment(_type=_type, total=total, order_id=order_id)
+    res = jsonify({"msg": "payment created"}), 200
     new_payment.save()
-    return jsonify({"msg": "payment created"}), 200
+    storage.close()
+    return res
 
 
 @api.route("/createshipping", methods=["POST"])
@@ -199,8 +220,10 @@ def create_shipping():
 
     new_shipping = Shipping(address=address, city=city, state=state,
                             country=country, cost=cost, delivered=delivered, order_id=order_id)
+    res = jsonify({"msg": "shipping created"}), 200
     new_shipping.save()
-    return jsonify({"msg": "shipping created"}), 200
+    storage.close()
+    return res
 
 
 @api.route("/users/all", methods=["GET"])
@@ -213,7 +236,9 @@ def all_users():
     """
     users = storage.all("User")
     users = [user.to_dict() for user in users]
-    return jsonify(users)
+    res = jsonify(users)
+    storage.close()
+    return res
 
 
 @api.route("/users/<string:user_id>", methods=["GET"])
@@ -227,7 +252,9 @@ def user_by_id(user_id):
         user = user[0]
     else:
         raise NotFound(user_id)
-    return user.to_dict()
+    res = user.to_dict()
+    storage.close()
+    return res
 
 
 @api.route("/orders", methods=["GET"])
@@ -236,8 +263,12 @@ def orders():
     """
     Return info about all orders
     """
+    current_app.logger.info('Returning the orders')
     orders = storage.all("Order")
-    return jsonify(orders_info(orders))
+    current_app.logger.info('ending orders array is', orders)
+    res = jsonify(orders_info(orders))
+    storage.close()
+    return res
 
 
 @api.route("/orders/<string:order_id>", methods=["GET"])
@@ -251,7 +282,9 @@ def order_by_id(order_id):
         order = order[0]
     else:
         return (jsonify([]), 404)
-    return jsonify([order_info(order)]), 200
+    res = jsonify([order_info(order)]), 200
+    storage.close()
+    return res
 
 
 @api.route("/orders/[<string:order_ids>]", methods=["GET"])
@@ -262,9 +295,11 @@ def orders_by_ids(order_ids):
     """
     ids = order_ids.split(',')
     orders = storage.all_inclusive("Order", id=ids)
-    if orders:
-        return jsonify(orders_info(orders))
-    return (jsonify({"msg": "No order with those ids"}), 404)
+    if not orders:
+        return (jsonify({"msg": "No order with those ids"}), 404)
+    res = jsonify(orders_info(orders))
+    storage.close()
+    return res
 
 
 @api.route("/orders/<string:date0> - <string:date1>", methods=["GET"])
@@ -275,9 +310,11 @@ def order_by_dates(date0, date1):
     the dates format must be %Y-%m-%d
     """
     orders = storage.order_by_dates(date0, date1)
-    if orders:
-        return jsonify(orders_info(orders))
-    return (jsonify([]), 404)
+    if not orders:
+        return (jsonify([]), 404)
+    res = jsonify(orders_info(orders))
+    storage.close()
+    return res
 
 
 @api.route("/orders/shipping/", strict_slashes=False, methods=["GET"])
@@ -299,7 +336,9 @@ def order_by_shipping():
         kwargs['country'] = country
     shippings = storage.all("Shipping", **kwargs)
     orders = [shipping.order for shipping in shippings]
-    return jsonify(orders_info(orders))
+    res = jsonify(orders_info(orders))
+    storage.close()
+    return res
 
 
 @api.route("/orders/user/<string:user_id>", methods=["GET"])
@@ -309,10 +348,12 @@ def order_by_user(user_id):
     Return info for orders of user with user_id
     """
     user = storage.all("User", id=user_id)
-    if user:
-        user = user[0]
-        return jsonify(orders_info(user.orders))
-    return ("Not found", 404)
+    if not user:
+        return ("Not found", 404)
+    user = user[0]
+    res = jsonify(orders_info(user.orders))
+    storage.close()
+    return res
 
 
 def orders_info(orders):
