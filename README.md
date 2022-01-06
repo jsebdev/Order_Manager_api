@@ -4,6 +4,8 @@ This is the back end side of an app that handles the process of handling orders 
 
 It uses JWT with flask to make the user authentication.
 
+In order to use this api, you'll need to do it using the [front-end](https://github.com/Sebas93cay/Order_Manager_frontend) or the [deployed version](https://sebas93cay.github.io/Order_Manager_frontend)
+
 Table of Contents
 =================
 
