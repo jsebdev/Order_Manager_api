@@ -10,6 +10,7 @@ Table of Contents
 * [Order Manager api](#order-manager-api)
    * [Principal Features:](#principal-features)
    * [How to run](#how-to-run)
+   * [Video](#video)
 
 ## Principal Features:
 
@@ -48,4 +49,10 @@ Run Flask
 ```
 flask run
 ```
+
+## Video
+
+This was my first serious project for my portfolio, so I did a fun video about it. I hope you can check it out :)
+
+ <center><a href="https://www.linkedin.com/posts/sebscaicedo_project-video-react-activity-6884715037630443520-nx1f">Video</a></center>
 
