@@ -1,6 +1,6 @@
 # Order Manager api
 
-This is the back end side of the an app that handles the process of handling orders for a fictional retail company.
+This is the back end side of an app that handles the process of handling orders for a fictional retail company.
 
 It uses JWT with flask to make the user authentication.
 
