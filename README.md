@@ -34,9 +34,15 @@ git clone https://github.com/Sebas93cay/Order_Manager_api.git
 cd Order_Manager_api
 ```
 
-Make sure to run the environment first
+If you don't have installed virtual env yet, install it
+```
+pip install virtualenv
+```
+
+Create and run the virtual environment
 
 ```
+virtualenv env
 source env/bin/activate
 ```
 
